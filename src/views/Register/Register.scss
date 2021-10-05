@@ -1,0 +1,13 @@
+#register {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .box {
+    padding: 2.5rem 2rem;
+    border: solid 1px #dadce0;
+    border-radius: 4px;
+    width: calc(min(500px, 100vw));
+  }
+}

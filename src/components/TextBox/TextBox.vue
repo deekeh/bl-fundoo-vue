@@ -1,7 +1,22 @@
 <template>
-  <div class="text-box-container">
-    <input type="text" id="txt" :name="name" :placeholder="placeholder" />
-    <label for="txt" v-if="label" v-html="label"></label>
+  <div class="text-box">
+    <div
+      class="text-box-container"
+      :style="{
+        '--theme': color,
+      }"
+    >
+      <input
+        type="text"
+        :id="name"
+        :name="name"
+        :placeholder="placeholder"
+        v-model="value"
+        :class="[error ? 'error' : '']"
+      />
+      <label :for="name" v-if="label" v-html="label" :class="[error ? 'error' : '']"></label>
+    </div>
+    <small class="error-text" v-if="error" v-html="error"></small>
   </div>
 </template>
 
