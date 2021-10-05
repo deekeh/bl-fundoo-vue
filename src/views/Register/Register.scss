@@ -4,10 +4,102 @@
   justify-content: center;
   align-items: center;
 
-  .box {
-    padding: 2.5rem 2rem;
+  .register-container {
     border: solid 1px #dadce0;
-    border-radius: 4px;
-    width: calc(min(500px, 100vw));
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    gap: 1rem;
+    width: calc(min(750px, 100vw));
+    @media screen and (max-width: 500px) {
+      border: none;
+    }
+    @media screen and (min-width: 500.1px) and (max-width: 1024px) {
+      width: min(450px, 90vw);
+    }
+
+    .left {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 0.5rem;
+      row-gap: 1.5rem;
+
+      flex: 6;
+
+      a {
+        text-decoration: none;
+        color: #277be9;
+        padding: 0.2rem 0.4rem;
+        font-weight: 600;
+
+        &:hover {
+          color: #174ea6;
+          background-color: #f6fafe;
+          border-radius: 4px;
+        }
+      }
+
+      .heading {
+        font-weight: 500;
+        font-size: 1.5rem;
+        @media screen and (max-width: 500px) {
+          font-size: 1.7rem;
+        }
+      }
+
+      .logo,
+      .heading,
+      .email-box,
+      .current-email,
+      .show-password {
+        grid-column: span 2;
+      }
+      @media screen and (max-width: 500px) {
+        & > *:not(.sign-in-box, .next-box) {
+          grid-column: span 2;
+        }
+      }
+
+      .show-password {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .sign-in-box,
+      .next-box {
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .next-box {
+        button {
+          background-color: #1a73e8;
+          border: none;
+          border-radius: 4px;
+          color: #fff;
+          outline: none;
+          padding: 0.8rem 1.5rem;
+          display: block;
+          margin-left: auto;
+        }
+      }
+    }
+
+    .right {
+      flex: 4;
+      @media screen and (max-width: 1000px) {
+        display: none;
+      }
+
+      .one-account {
+        padding: 0 2rem;
+        text-align: center;
+        font-weight: 100;
+        font-size: 1.1rem;
+      }
+    }
   }
 }

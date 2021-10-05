@@ -7,7 +7,7 @@
       }"
     >
       <input
-        type="text"
+        :type="type"
         :id="name"
         :name="name"
         :placeholder="placeholder"
