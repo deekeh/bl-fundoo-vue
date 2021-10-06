@@ -4,7 +4,7 @@
       <form action="" class="left box">
         <logo class="logo" />
         <h1 class="heading">
-          Create your Google Account
+          Create your Fundoo Account
         </h1>
         <text-box name="firstname" label="First Name" />
         <text-box name="lastname" label="Last Name" />
@@ -33,9 +33,9 @@
         </div>
 
         <div class="sign-in-box">
-          <a href="#" class="sign-in">
+          <router-link :to="{ name: 'Login' }" class="sign-in">
             Sign in instead
-          </a>
+          </router-link>
         </div>
         <div class="next-box">
           <button class="next">Next</button>
@@ -44,7 +44,7 @@
       <div class="right">
         <register-side />
         <p class="one-account">
-          One Account. All of Google working for you.
+          One Account. All of Fundoo working for you.
         </p>
       </div>
     </div>

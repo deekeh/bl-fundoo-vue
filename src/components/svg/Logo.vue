@@ -1,5 +1,5 @@
 <template>
-  <svg
+  <!-- <svg
     viewBox="0 0 75 24"
     width="75"
     height="24"
@@ -40,7 +40,12 @@
         d="M14.11 14.182c.722-.723 1.205-1.78 1.387-3.334H9.423V8.373h8.518c.09.452.16 1.07.16 1.664 0 1.903-.52 4.26-2.19 5.934-1.63 1.7-3.71 2.61-6.48 2.61-5.12 0-9.42-4.17-9.42-9.29C0 4.17 4.31 0 9.43 0c2.83 0 4.843 1.108 6.362 2.56L14 4.347c-1.087-1.02-2.56-1.81-4.577-1.81-3.74 0-6.662 3.01-6.662 6.75s2.93 6.75 6.67 6.75c2.43 0 3.81-.972 4.69-1.856z"
       ></path>
     </g>
-  </svg>
+  </svg> -->
+  <span class="logo">
+    <span class="one">F</span><span class="two">u</span
+    ><span class="three">n</span><span class="four">d</span
+    ><span class="five">o</span><span class="six">o</span>
+  </span>
 </template>
 
 <script>
@@ -49,4 +54,30 @@
   };
 </script>
 
-<style></style>
+<style lang="scss">
+  span.logo {
+    // display: block;
+    span {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    .one {
+      color: #ea4335;
+    }
+    .two {
+      color: #34a853;
+    }
+    .three {
+      color: #4285f4;
+    }
+    .four {
+      color: #fbbc05;
+    }
+    .five {
+      color: #ea4335;
+    }
+    .six {
+      color: #4285f4;
+    }
+  }
+</style>
