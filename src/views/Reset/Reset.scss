@@ -1,0 +1,57 @@
+section#reset {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form.reset-container {
+    height: 500px;
+    width: calc(min(450px, 100vw));
+    border: solid 1px #dadce0;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    @media screen and (max-width: 500px) {
+      height: 100vh;
+      border: none;
+    }
+
+    .heading {
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+
+    .subheading {
+      font-weight: 400;
+      font-size: 1rem;
+    }
+
+    .textbx {
+      width: 100%;
+    }
+
+    .next-box {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+
+      button {
+        background-color: #1a73e8;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        outline: none;
+        padding: 0.8rem 1.5rem;
+        cursor: pointer;
+        transition: all 0.15s ease-in;
+        &:hover {
+          background-color: #1b66ca;
+          box-shadow: 1px 1px 4px #aaa;
+        }
+      }
+    }
+  }
+}

@@ -11,9 +11,9 @@
         </h2>
         <text-box name="email" label="Email or phone" />
         <text-box name="password" label="Password" type="password" />
-        <a href="#">
+        <router-link :to="{ name: 'Reset' }">
           Forgot email?
-        </a>
+        </router-link>
         <div class="not-your-computer">
           Not your computer? Use Guest mode to sign in privately.
           <div>
