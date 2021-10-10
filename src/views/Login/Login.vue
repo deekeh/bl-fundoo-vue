@@ -1,7 +1,7 @@
 <template>
   <section id="login">
     <div class="login-container">
-      <form action="" class="box">
+      <form @submit.prevent="login" action="" class="box">
         <logo class="text-center" />
         <h1 class="heading text-center">
           Sign in
@@ -9,8 +9,19 @@
         <h2 class="subheading text-center">
           Use your Fundoo Account
         </h2>
-        <text-box name="email" label="Email or phone" />
-        <text-box name="password" label="Password" type="password" />
+        <text-box
+          v-model:value="email"
+          name="email"
+          label="Email or phone"
+          :error="v$.email.$error ? v$.email.$errors[0].$message : ''"
+        />
+        <text-box
+          v-model:value="password"
+          name="password"
+          label="Password"
+          type="password"
+          :error="v$.password.$error ? v$.password.$errors[0].$message : ''"
+        />
         <router-link :to="{ name: 'Reset' }">
           Forgot email?
         </router-link>
@@ -23,7 +34,7 @@
 
         <div class="next-box">
           <router-link :to="{ name: 'Register' }">Create account</router-link>
-          <button class="next">Next</button>
+          <button type="submit" class="next">Next</button>
         </div>
       </form>
     </div>

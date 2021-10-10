@@ -4,6 +4,7 @@ import TextBox from "@/components/TextBox/TextBox.vue";
 import Logo from "@/components/svg/Logo.vue";
 import RegisterSide from "@/components/svg/RegisterSide.vue";
 
+// vuelidate
 import useVuelidate from "@vuelidate/core";
 import {
   sameAs,
@@ -59,9 +60,7 @@ export default {
   },
   methods: {
     register() {
-      // console.log(e.target);
       this.v$.$validate();
-      console.log(this.v$.firstname);
     },
   },
 };
