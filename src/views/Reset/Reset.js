@@ -28,7 +28,6 @@ export default {
   methods: {
     reset() {
       this.v$.$validate();
-      console.log("reset done", this.email);
     },
   },
 };
