@@ -1,16 +1,32 @@
 <template>
   <section id="register">
     <div class="register-container">
-      <form action="" class="left box">
+      <form @submit.prevent="() => register()" class="left box">
         <logo class="logo" />
         <h1 class="heading">
           Create your Fundoo Account
         </h1>
-        <text-box name="firstname" label="First Name" />
-        <text-box name="lastname" label="Last Name" />
+        <text-box
+          v-model:value="firstname"
+          name="firstname"
+          label="First Name"
+          :error="v$.firstname.$error ? v$.firstname.$errors[0].$message : ''"
+        />
+        <text-box
+          v-model:value="lastname"
+          name="lastname"
+          label="Last Name"
+          :error="v$.lastname.$error ? v$.lastname.$errors[0].$message : ''"
+        />
 
         <div class="email-box">
-          <text-box type="email" name="email" label="Username" />
+          <text-box
+            v-model:value="email"
+            type="text"
+            name="email"
+            label="Username"
+            :error="v$.email.$error ? v$.email.$errors[0].$message : ''"
+          />
         </div>
 
         <div class="current-email">
@@ -19,11 +35,24 @@
           </a>
         </div>
 
-        <text-box name="password" label="Password" type="password" />
-        <text-box name="confirm" label="Confirm" type="password" />
+        <text-box
+          v-model:value="password"
+          name="password"
+          label="Password"
+          :type="showPassword ? 'text' : 'password'"
+          :error="v$.password.$error ? v$.password.$errors[0].$message : ''"
+        />
+        <text-box
+          v-model:value="confirmPassword"
+          name="confirm"
+          label="Confirm"
+          :type="showPassword ? 'text' : 'password'"
+          :error="v$.confirmPassword.$error ? v$.confirmPassword.$errors[0].$message : ''"
+        />
 
         <div class="show-password">
           <input
+            v-model="showPassword"
             type="checkbox"
             name="show-check"
             id="show-check"
@@ -38,7 +67,7 @@
           </router-link>
         </div>
         <div class="next-box">
-          <button class="next">Next</button>
+          <button type="submit" class="next">Next</button>
         </div>
       </form>
       <div class="right">

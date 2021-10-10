@@ -13,6 +13,7 @@
         :placeholder="placeholder"
         v-model="value"
         :class="[error ? 'error' : '']"
+        @input="$emit('update:value', value)"
       />
       <label :for="name" v-if="label" v-html="label" :class="[error ? 'error' : '']"></label>
     </div>
