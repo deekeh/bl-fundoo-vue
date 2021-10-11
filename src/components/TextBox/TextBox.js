@@ -29,6 +29,7 @@ export default {
   data() {
     return {
       value: "",
+      exclamation: '<i class="bi bi-exclamation-circle-fill"></i>',
     };
   },
 };

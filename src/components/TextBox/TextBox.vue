@@ -15,9 +15,18 @@
         :class="[error ? 'error' : '']"
         @input="$emit('update:value', value)"
       />
-      <label :for="name" v-if="label" v-html="label" :class="[error ? 'error' : '']"></label>
+      <label
+        :for="name"
+        v-if="label"
+        v-html="label"
+        :class="[error ? 'error' : '']"
+      ></label>
     </div>
-    <small class="error-text" :class="[error ? 'is-visible' : '']" v-html="error ? error : '&nbsp;'"></small>
+    <small
+      class="error-text"
+      :class="[error ? 'is-visible' : '']"
+      v-html="error ? `${exclamation}${error}` : '&nbsp;'"
+    ></small>
   </div>
 </template>
 

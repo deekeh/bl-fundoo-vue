@@ -2,6 +2,7 @@
   .text-box-container {
     margin-top: 0.4rem;
     position: relative;
+    margin-bottom: 2px;
     input {
       outline: none;
       padding: 0.5rem;
@@ -65,12 +66,14 @@
     }
   }
   .error-text {
-    // margin-top: 4px;
-    // display: block;
-    // line-height: 0.8rem;
     font-size: 0.8rem;
     color: #f00;
-    // min-height: 0.8rem;
+
+    i {
+      color: #f00;
+      font-size: 0.8rem;
+      margin-right: 0.5rem;
+    }
 
     &:not(.is-visible) {
       opacity: 0;
