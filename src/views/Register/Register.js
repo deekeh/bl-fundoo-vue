@@ -7,7 +7,7 @@ import RegisterSide from "@/components/svg/RegisterSide.vue";
 // vuelidate
 import useVuelidate from "@vuelidate/core";
 import {
-  sameAs,
+  // sameAs,
   email,
   required,
   helpers,
@@ -34,10 +34,10 @@ export default {
   },
   validations: {
     firstname: {
-      required: helpers.withMessage("Email required", required),
+      required: helpers.withMessage("First name required", required),
     },
     lastname: {
-      required: helpers.withMessage("Email required", required),
+      required: helpers.withMessage("Last name required", required),
     },
     email: {
       required: helpers.withMessage("Email required", required),
@@ -49,18 +49,24 @@ export default {
         "Password should be at least 8 characters long",
         minLength(8)
       ),
-      sameAs: helpers.withMessage(
-        "Passwords should match",
-        sameAs("confirmPassword")
-      ),
     },
     confirmPassword: {
       required: helpers.withMessage("Confirmation required", required),
+      // sameAs: helpers.withMessage("Passwords should match", sameAs("password")),
     },
   },
   methods: {
     register() {
       this.v$.$validate();
+      if (!this.v$.$error) {
+        const data = {
+          firstname: this.firstname,
+          lastname: this.lastname,
+          email: this.email,
+          password: this.password,
+        };
+        console.log(data);
+      }
     },
   },
 };

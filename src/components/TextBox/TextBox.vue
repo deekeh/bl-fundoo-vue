@@ -17,7 +17,7 @@
       />
       <label :for="name" v-if="label" v-html="label" :class="[error ? 'error' : '']"></label>
     </div>
-    <small class="error-text" v-if="error" v-html="error"></small>
+    <small class="error-text" :class="[error ? 'is-visible' : '']" v-html="error ? error : '&nbsp;'"></small>
   </div>
 </template>
 

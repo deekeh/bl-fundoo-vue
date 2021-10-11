@@ -27,6 +27,14 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "login" */ "../views/Reset/Reset.vue"),
   },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () =>
+      import(
+        /* webpackChunkName: "dashboard" */ "../views/Dashboard/Dashboard.vue"
+      ),
+  },
 ];
 
 const router = createRouter({
