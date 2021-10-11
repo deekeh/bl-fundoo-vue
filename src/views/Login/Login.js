@@ -7,6 +7,8 @@ import Logo from "@/components/svg/Logo.vue";
 import useVuelidate from "@vuelidate/core";
 import { email, required, minLength, helpers } from "@vuelidate/validators";
 
+import axios from "axios";
+
 export default {
   name: "Login",
   components: {
@@ -36,6 +38,21 @@ export default {
   methods: {
     login() {
       this.v$.$validate();
+      if (!this.v$.error) {
+        const data = {
+          email: this.email,
+          password: this.password,
+        };
+        console.log(data);
+        axios
+          .post("/u/login", data)
+          .then((res) => {
+            localStorage.setItem("token", res.data.token);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
     },
   },
 };

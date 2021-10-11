@@ -69,7 +69,7 @@ export default {
         };
         console.log(data);
         axios
-          .post("http://localhost:2000/u/register", data)
+          .post("/u/register", data)
           .then((res) => {
             this.$router.push({ name: "Login" });
             console.log(res);
