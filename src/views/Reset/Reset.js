@@ -7,6 +7,8 @@ import Logo from "@/components/svg/Logo.vue";
 import useVuelidate from "@vuelidate/core";
 import { email, helpers, required } from "@vuelidate/validators";
 
+import axios from "axios";
+
 export default {
   name: "Reset",
   components: {
@@ -28,6 +30,20 @@ export default {
   methods: {
     reset() {
       this.v$.$validate();
+      if (!this.v$.$error) {
+        const data = {
+          email: this.email,
+        };
+        // console.log(data);
+        axios
+          .post(`/u/reset?email=${this.email}`)
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      }
     },
   },
 };
