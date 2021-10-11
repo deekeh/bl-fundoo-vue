@@ -43,7 +43,6 @@ export default {
           email: this.email,
           password: this.password,
         };
-        console.log(data);
         axios
           .post("/u/login", data)
           .then((res) => {
