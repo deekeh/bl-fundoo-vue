@@ -14,6 +14,8 @@ import {
   minLength,
 } from "@vuelidate/validators";
 
+import axios from "axios";
+
 export default {
   name: "Register",
   components: {
@@ -60,12 +62,21 @@ export default {
       this.v$.$validate();
       if (!this.v$.$error) {
         const data = {
-          firstname: this.firstname,
-          lastname: this.lastname,
+          firstName: this.firstname,
+          lastName: this.lastname,
           email: this.email,
           password: this.password,
         };
         console.log(data);
+        axios
+          .post("http://localhost:2000/u/register", data)
+          .then((res) => {
+            this.$router.push({ name: "Login" });
+            console.log(res);
+          })
+          .catch((err) => {
+            console.error(err);
+          });
       }
     },
   },
