@@ -1,11 +1,17 @@
 <template>
   <section id="dashboard">
-    <navbar />
+    <navbar v-on:toggle-sidebar="sidebarState = !sidebarState" />
+    <div class="main" :class="[sidebarState ? 'sidebar-toggled' : '']">
+      <sidebar :sidebartoggled="sidebarState" />
+      <div class="notes">
+        notes
+      </div>
+    </div>
   </section>
 </template>
 
 <script type="module" src="./Dashboard.js"></script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   @import "./Dashboard";
 </style>

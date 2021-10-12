@@ -31,9 +31,9 @@ export default {
     reset() {
       this.v$.$validate();
       if (!this.v$.$error) {
-        const data = {
-          email: this.email,
-        };
+        // const data = {
+        //   email: this.email,
+        // };
         // console.log(data);
         axios
           .post(`/u/reset?email=${this.email}`)

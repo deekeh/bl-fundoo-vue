@@ -25,7 +25,13 @@ const routes = [
     path: "/reset",
     name: "Reset",
     component: () =>
-      import(/* webpackChunkName: "login" */ "../views/Reset/Reset.vue"),
+      import(/* webpackChunkName: "reset" */ "../views/Reset/Reset.vue"),
+  },
+  {
+    path: "/reset/v/:token",
+    name: "Reset",
+    component: () =>
+      import(/* webpackChunkName: "reset-verify" */ "../views/Reset/Reset.vue"),
   },
   {
     path: "/dashboard",

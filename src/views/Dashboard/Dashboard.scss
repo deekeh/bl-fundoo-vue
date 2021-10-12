@@ -1,0 +1,16 @@
+section#dashboard {
+  height: 100%;
+  .main {
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% auto;
+    &:not(.sidebar-toggled) {
+      grid-template-columns: 64px auto;
+    }
+    min-height: calc(100vh - 64px);
+    & > * {
+      // border: solid 1px #f00;
+      height: 100%;
+    }
+  }
+}

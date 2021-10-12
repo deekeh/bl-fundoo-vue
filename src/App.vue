@@ -16,7 +16,8 @@
     font-family: "Mukta", sans-serif;
   }
   body,
-  html {
+  html,
+  .App {
     min-height: 100vh;
   }
 

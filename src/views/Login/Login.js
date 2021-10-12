@@ -47,6 +47,7 @@ export default {
           .post("/u/login", data)
           .then((res) => {
             localStorage.setItem("token", res.data.token);
+            this.$router.push({ name: "Dashboard" });
           })
           .catch((err) => {
             console.error(err);
