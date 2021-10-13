@@ -1,4 +1,5 @@
 import TextBox from "@/components/TextBox/TextBox.vue";
+import Toast from "@/components/Toast/Toast.vue";
 
 // svg
 import Logo from "@/components/svg/Logo.vue";
@@ -14,11 +15,15 @@ export default {
   components: {
     Logo,
     TextBox,
+    Toast,
   },
   data() {
     return {
       v$: useVuelidate(),
       email: "",
+      toastVisibility: false,
+      toastMessage: "",
+      toastTheme: "",
     };
   },
   validations: {
@@ -37,11 +42,17 @@ export default {
         // console.log(data);
         axios
           .post(`/u/reset?email=${this.email}`)
-          .then((res) => {
-            console.log(res);
+          .then(() => {
+            // console.log(res);
+            this.toastMessage = "Email has been sent successfully";
+            this.toastVisibility = true;
+            this.toastTheme = "theme-success"
           })
           .catch((err) => {
             console.error(err);
+            this.toastMessage = "Email not found";
+            this.toastVisibility = true;
+            this.toastTheme = "theme-danger"
           });
       }
     },

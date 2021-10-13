@@ -1,5 +1,11 @@
 <template>
   <section id="reset">
+    <toast
+      v-on:toastdisabled="toastVisibility = false"
+      :toastvisibility="toastVisibility"
+      :toastmessage="toastMessage"
+      :theme="toastTheme"
+    />
     <form @submit.prevent="reset" action="" class="reset-container">
       <logo class="text-center" />
       <h1 class="heading text-center">
