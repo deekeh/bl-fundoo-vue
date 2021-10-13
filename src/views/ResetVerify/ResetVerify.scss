@@ -1,0 +1,55 @@
+section#reset-verify {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .verify-container {
+    width: calc(min(450px, 100vw));
+    border: solid 1px #dadce0;
+    border-radius: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    height: 500px;
+    @media screen and (max-width: 500px) {
+      height: 100vh;
+    }
+  }
+
+  .logo,
+  .heading,
+  .subheading {
+    text-align: center;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .subheading {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+
+  .next-box {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background-color: #1a73e8;
+      padding: 0.8rem 1.4rem;
+      outline: none;
+      border: none;
+      border-radius: 4px;
+      color: #fff;
+      &:hover {
+        cursor: pointer;
+        background-color: #1b66ca;
+      }
+    }
+  }
+}

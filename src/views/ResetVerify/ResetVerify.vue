@@ -17,7 +17,9 @@
         :error="v$.newPassword.$error ? v$.newPassword.$errors[0].$message : ''"
       />
 
-      <button type="submit">Next</button>
+      <div class="next-box">
+        <button type="submit">Next</button>
+      </div>
     </form>
   </section>
 </template>
