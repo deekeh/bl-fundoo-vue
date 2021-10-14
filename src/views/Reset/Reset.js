@@ -46,13 +46,13 @@ export default {
             // console.log(res);
             this.toastMessage = "Email has been sent successfully";
             this.toastVisibility = true;
-            this.toastTheme = "theme-success"
+            this.toastTheme = "theme-success";
           })
           .catch((err) => {
             console.error(err.toJSON());
             this.toastMessage = "Email not found";
             this.toastVisibility = true;
-            this.toastTheme = "theme-danger"
+            this.toastTheme = "theme-danger";
           });
       }
     },

@@ -1,4 +1,5 @@
 import TextBox from "@/components/TextBox/TextBox.vue";
+import Toast from "@/components/Toast/Toast.vue";
 
 // svg
 import Logo from "@/components/svg/Logo.vue";
@@ -22,6 +23,7 @@ export default {
     Logo,
     RegisterSide,
     TextBox,
+    Toast,
   },
   data() {
     return {
@@ -32,6 +34,10 @@ export default {
       password: "",
       confirmPassword: "",
       showPassword: false,
+
+      toastVisibility: false,
+      toastMessage: "",
+      toastTheme: "",
     };
   },
   validations: {
@@ -75,7 +81,11 @@ export default {
             console.log(res);
           })
           .catch((err) => {
-            console.error(err);
+            console.error(err.toJSON());
+            console.log(this);
+            this.toastMessage = "Email ID already registered";
+            this.toastVisibility = true;
+            this.toastTheme = "theme-danger";
           });
       }
     },

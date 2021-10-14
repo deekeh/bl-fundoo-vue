@@ -1,5 +1,11 @@
 <template>
   <section id="register">
+    <toast
+      v-on:toastdisabled="toastVisibility = false"
+      :toastvisibility="toastVisibility"
+      :toastmessage="toastMessage"
+      :theme="toastTheme"
+    />
     <div class="register-container">
       <form @submit.prevent="() => register()" class="left box">
         <logo class="logo" />
@@ -47,7 +53,11 @@
           name="confirm"
           label="Confirm"
           :type="showPassword ? 'text' : 'password'"
-          :error="v$.confirmPassword.$error ? v$.confirmPassword.$errors[0].$message : ''"
+          :error="
+            v$.confirmPassword.$error
+              ? v$.confirmPassword.$errors[0].$message
+              : ''
+          "
         />
 
         <div class="show-password">

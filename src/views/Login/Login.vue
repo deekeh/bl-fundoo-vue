@@ -1,5 +1,11 @@
 <template>
   <section id="login">
+    <toast
+      v-on:toastdisabled="toastVisibility = false"
+      :toastvisibility="toastVisibility"
+      :toastmessage="toastMessage"
+      :theme="toastTheme"
+    />
     <div class="login-container">
       <form @submit.prevent="login" action="" class="box">
         <logo class="text-center" />
