@@ -49,7 +49,7 @@ export default {
             this.toastTheme = "theme-success"
           })
           .catch((err) => {
-            console.error(err);
+            console.error(err.toJSON());
             this.toastMessage = "Email not found";
             this.toastVisibility = true;
             this.toastTheme = "theme-danger"

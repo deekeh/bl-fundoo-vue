@@ -2,7 +2,7 @@
   <section
     @click="close"
     class="toast"
-    :class="[toastvisibility ? 'visible' : '', theme]"
+    :class="[tState ? 'visible' : '', theme]"
   >
     {{ toastmessage }}
     <!-- <button class="close" @click="close">
