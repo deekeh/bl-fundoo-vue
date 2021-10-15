@@ -42,12 +42,60 @@ nav#navbar {
     }
   }
 
+  .search-box {
+    background-color: #f1f3f4;
+    padding: 8px;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+
+    @media screen and (max-width: 500px) {
+      background-color: inherit;
+      input, .cross-icon {
+        display: none;
+        
+      }
+    }
+
+    .search-icon {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    input {
+      background-color: #f1f3f4;
+      color: #333;
+      width: 50vh;
+      border: none;
+      outline: none;
+      font-size: 1.2rem;
+      & ~ .cross-icon {
+        // display: none;
+        visibility: hidden;
+        cursor: pointer;
+      }
+      &:focus ~ .cross-icon {
+        // display: inline;
+        visibility: visible;
+      }
+    }
+
+  }
+
   .right {
     display: flex;
     gap: 1rem;
 
     .icon {
       @include nav-button();
+    }
+
+    @media screen and (max-width: 500px) {
+      .icon:not(.user-account) {
+        display: none;
+      }
     }
   }
 }

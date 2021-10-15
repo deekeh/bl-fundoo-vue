@@ -1,7 +1,11 @@
 <template>
   <nav id="navbar">
     <div class="left">
-      <button type="button" @click="$emit('toggle-sidebar')" class="toggle-sidebar">
+      <button
+        type="button"
+        @click="$emit('toggle-sidebar')"
+        class="toggle-sidebar"
+      >
         <i class="bi bi-list"></i>
       </button>
       <img
@@ -12,10 +16,12 @@
       <h1 class="heading">
         Keep
       </h1>
-      <label>
-        <input type="text" />
-      </label>
     </div>
+    <label class="search-box">
+      <i class="bi bi-search search-icon"></i>
+      <input type="text" placeholder="Search" />
+      <i class="bi bi-x cross-icon"></i>
+    </label>
     <div class="right">
       <div class="refresh icon">
         <i class="bi bi-arrow-clockwise"></i>
