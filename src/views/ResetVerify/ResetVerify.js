@@ -4,7 +4,9 @@ import Logo from "@/components/svg/Logo.vue";
 import TextBox from "@/components/TextBox/TextBox.vue";
 import useVuelidate from "@vuelidate/core";
 import { helpers, minLength, required } from "@vuelidate/validators";
-import axios from "axios";
+
+// service
+import { resetVerify } from "@/services/auth";
 
 export default {
   name: "ResetVerify",
@@ -30,17 +32,18 @@ export default {
       this.v$.$validate();
       if (!this.v$.$error) {
         console.log(this.v$);
-        axios
-          .post(`/u/reset/verify/${this.$route.params.token}`, {
-            password: this.newPassword,
-          })
-          .then((res) => {
-            console.log(res);
-            this.$router.push({ name: "Login" });
-          })
-          .catch((err) => {
-            console.error(err);
-          });
+        resetVerify(this.$route.params.token, this.newPassword)
+        .then((res) => {
+          console.log(res);
+          this.$router.push({ name: "Login" });
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+        // axios
+        //   .post(`/u/reset/verify/${this.$route.params.token}`, {
+        //     password: this.newPassword,
+        //   })
       }
     },
   },

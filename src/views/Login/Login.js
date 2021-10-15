@@ -8,7 +8,8 @@ import Logo from "@/components/svg/Logo.vue";
 import useVuelidate from "@vuelidate/core";
 import { email, required, minLength, helpers } from "@vuelidate/validators";
 
-import axios from "axios";
+// service
+import { login } from "@/services/auth";
 
 export default {
   name: "Login",
@@ -49,8 +50,7 @@ export default {
           email: this.email,
           password: this.password,
         };
-        axios
-          .post("/u/login", data)
+        login(data)
           .then((res) => {
             localStorage.setItem("token", res.data.token);
             this.$router.push({ name: "Dashboard" });

@@ -15,7 +15,8 @@ import {
   minLength,
 } from "@vuelidate/validators";
 
-import axios from "axios";
+// service
+import { register } from "@/services/auth";
 
 export default {
   name: "Register",
@@ -74,15 +75,13 @@ export default {
           password: this.password,
         };
         console.log(data);
-        axios
-          .post("/u/register", data)
+        register(data)
           .then((res) => {
             this.$router.push({ name: "Login" });
             console.log(res);
           })
           .catch((err) => {
-            console.error(err.toJSON());
-            console.log(this);
+            console.error(err);
             this.toastMessage = "Email ID already registered";
             this.toastVisibility = true;
             this.toastTheme = "theme-danger";
