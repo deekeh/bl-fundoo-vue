@@ -4,8 +4,8 @@
     <div class="main" :class="[sidebarState ? 'sidebar-toggled' : '']">
       <sidebar :sidebartoggled="sidebarState" />
       <div class="notes">
-        <add-note />
-        <display-notes />
+        <add-note v-on:note-added="(e) => addNewNote(e)" />
+        <display-notes :newnote="newNote" />
       </div>
     </div>
   </section>

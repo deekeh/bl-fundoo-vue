@@ -41,7 +41,7 @@
       border-radius: 1000px;
 
       &:hover {
-        background: #f9f9f9;
+        // background: #f9f9f9;
         cursor: pointer;
       }
     }

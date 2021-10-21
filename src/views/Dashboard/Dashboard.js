@@ -16,9 +16,15 @@ export default {
   data() {
     return {
       sidebarState: true,
+      newNote: {},
     };
   },
   created() {
     if (!localStorage.getItem("token")) this.$router.push({ name: "Login" });
+  },
+  methods: {
+    addNewNote(e) {
+      this.newNote = e;
+    },
   },
 };

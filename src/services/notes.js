@@ -1,7 +1,7 @@
 import axios from "axios";
+const token = localStorage.getItem("token");
 
 const getNotes = () => {
-  const token = localStorage.getItem("token");
   return new Promise((resolve, reject) => {
     axios
       .get(
@@ -18,4 +18,19 @@ const getNotes = () => {
   });
 };
 
-export { getNotes };
+const addNote = (body) => {
+  console.log(token);
+  return new Promise((resolve, reject) => {
+    axios
+      .post("/notes", body, {
+        // body: body,
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((data) => resolve(data))
+      .catch((err) => reject(err));
+  });
+};
+
+export { getNotes, addNote };

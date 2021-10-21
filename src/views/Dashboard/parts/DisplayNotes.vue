@@ -1,12 +1,12 @@
 <template>
   <section class="display-notes">
-    <note v-for="(data, idx) in notes" :key="idx" :title="data.title" :description="data.description" :color="data.color" />
-    <!-- <note />
-    <note />
-    <note />
-    <note />
-    <note />
-    <note /> -->
+    <note
+      v-for="(data, idx) in notes"
+      :key="idx"
+      :title="data.title"
+      :description="data.description"
+      :color="data.color"
+    />
   </section>
 </template>
 
@@ -28,12 +28,23 @@
       const id = localStorage.getItem("id");
       getNotes(id)
         .then((data) => {
-          console.log(data.data)
+          console.log(data.data);
           this.notes = data.data;
         })
         .catch((err) => {
           console.error(err);
         });
+    },
+    props: {
+      newnote: {
+        type: Object,
+        // default: {},
+      },
+    },
+    watch: {
+      newnote() {
+        this.notes = [...this.notes, this.newnote];
+      },
     },
   };
 </script>

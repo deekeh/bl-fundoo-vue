@@ -1,8 +1,14 @@
 <template>
   <section class="add-note-outer">
-    <div class="add-note">
+    <form @submit.prevent="submitNote()" class="add-note">
       <div class="top">
-        <input type="text" name="title" class="title" placeholder="Title" />
+        <input
+          type="text"
+          name="title"
+          v-model="title"
+          class="title"
+          placeholder="Title"
+        />
         <button class="pin">
           <i class="bi bi-pin"></i>
         </button>
@@ -12,24 +18,53 @@
           name="note-decription"
           id="note-description"
           placeholder="Take a note..."
+          v-model="description"
         ></textarea>
         <footer class="bottom-footer">
           <note-options />
           <div class="right">
-            <button class="close">Close</button>
+            <button type="submit" class="close">Close</button>
           </div>
         </footer>
       </div>
-    </div>
+    </form>
   </section>
 </template>
 
 <script>
+  // service
+  import { addNote } from "@/services/notes";
+
   import NoteOptions from "./NoteOptions.vue";
   export default {
     name: "AddNote",
     components: {
       NoteOptions,
+    },
+    data() {
+      return {
+        title: "",
+        description: "",
+        color: "#fff",
+      };
+    },
+    methods: {
+      submitNote() {
+        const body = {
+          title: this.title,
+          description: this.description,
+          color: this.color,
+        };
+        // console.log(body);
+        addNote(body)
+          .then((res) => {
+            console.log(res);
+            this.$emit("note-added", res.data)
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      },
     },
   };
 </script>
