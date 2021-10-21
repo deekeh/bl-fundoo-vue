@@ -4,7 +4,8 @@
     <div class="main" :class="[sidebarState ? 'sidebar-toggled' : '']">
       <sidebar :sidebartoggled="sidebarState" />
       <div class="notes">
-        notes
+        <add-note />
+        <display-notes />
       </div>
     </div>
   </section>

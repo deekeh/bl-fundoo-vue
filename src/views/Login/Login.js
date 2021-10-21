@@ -52,7 +52,9 @@ export default {
         };
         login(data)
           .then((res) => {
+            console.log(res.data);
             localStorage.setItem("token", res.data.token);
+            localStorage.setItem("id", res.data.id);
             this.$router.push({ name: "Dashboard" });
           })
           .catch((err) => {
