@@ -15,7 +15,7 @@
     <button @click="archiveNote()" class="archive icon">
       <i class="bi bi-archive"></i>
     </button>
-    <button class="more icon">
+    <button @click="deleteNote()" class="more icon">
       <i class="bi bi-three-dots-vertical"></i>
     </button>
   </aside>
@@ -23,7 +23,7 @@
 
 <script>
   // service
-  import { setArchiveNote } from "@/services/notes";
+  import { setArchiveNote, setDeleteNote } from "@/services/notes";
 
   export default {
     name: "NoteOptions",
@@ -35,10 +35,20 @@
     methods: {
       archiveNote() {
         if (this.archiveid) {
-          console.log(this.archiveid);
           setArchiveNote(this.archiveid)
             .then(() => {
               this.$emit("removearchivednote");
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        }
+      },
+      deleteNote() {
+        if (this.archiveid) {
+          setDeleteNote(this.archiveid)
+            .then(() => {
+              this.$emit("removedeletednote");
             })
             .catch((err) => {
               console.error(err);

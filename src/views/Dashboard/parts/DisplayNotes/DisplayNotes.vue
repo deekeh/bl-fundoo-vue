@@ -7,7 +7,8 @@
       :description="data.description"
       :color="data.color"
       :noteid="data._id"
-      v-on:removearchivednote="noteid => removeArchivedNote(noteid)"
+      v-on:removearchivednote="noteid => removeNote(noteid)"
+      v-on:removedeletednote="noteid => removeNote(noteid)"
     />
   </section>
 </template>

@@ -15,6 +15,7 @@
     <div v-if="showoptions" class="note-options-outer">
       <note-options
         v-on:removearchivednote="$emit('removearchivednote', noteid)"
+        v-on:removedeletednote="$emit('removedeletednote', noteid)"
         :archiveid="noteid"
       />
     </div>

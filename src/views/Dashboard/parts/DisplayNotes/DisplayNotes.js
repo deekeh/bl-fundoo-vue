@@ -19,9 +19,8 @@ export default {
 
         this.notes = [];
         data.data.forEach((d) => {
-          if (!d.isArchived) this.notes = [...this.notes, d];
+          if (!d.isArchived && !d.isDeleted) this.notes = [...this.notes, d];
         });
-        // this.notes = data.data;
       })
       .catch((err) => {
         console.error(err);
@@ -30,7 +29,6 @@ export default {
   props: {
     newnote: {
       type: Object,
-      // default: {},
     },
   },
   watch: {
@@ -39,8 +37,7 @@ export default {
     },
   },
   methods: {
-    removeArchivedNote(id) {
-      console.log("cool emit");
+    removeNote(id) {
       this.notes = this.notes.filter((n) => n._id !== id);
     },
   },
