@@ -3,7 +3,9 @@ import Sidebar from "@/components/Sidebar/Sidebar.vue";
 
 // internal components
 import AddNote from "./parts/AddNote.vue";
-import DisplayNotes from "./parts/DisplayNotes.vue";
+import DisplayNotes from "./parts/DisplayNotes/DisplayNotes.vue";
+import DisplayArchivedNotes from "./parts/DisplayArchivedNotes/DisplayArchivedNotes.vue";
+import DisplayTrashNotes from "./parts/DisplayTrashNotes/DisplayTrashNotes.vue";
 
 export default {
   name: "Dashboard",
@@ -12,11 +14,14 @@ export default {
     Sidebar,
     AddNote,
     DisplayNotes,
+    DisplayArchivedNotes,
+    DisplayTrashNotes,
   },
   data() {
     return {
       sidebarState: true,
       newNote: {},
+      tabName: "notes",
     };
   },
   created() {
@@ -25,6 +30,9 @@ export default {
   methods: {
     addNewNote(e) {
       this.newNote = e;
+    },
+    tabChange(tabName) {
+      this.tabName = tabName;
     },
   },
 };

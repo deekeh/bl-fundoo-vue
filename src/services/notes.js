@@ -33,4 +33,30 @@ const addNote = (body) => {
   });
 };
 
-export { getNotes, addNote };
+const getArchivedNotes = () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get("/notes/archived", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((data) => resolve(data))
+      .catch((err) => reject(err));
+  });
+};
+
+const getDeletedNotes = () => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get("/notes/deleted", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((data) => resolve(data))
+      .catch((err) => reject(err));
+  });
+};
+
+export { getNotes, addNote, getArchivedNotes, getDeletedNotes };

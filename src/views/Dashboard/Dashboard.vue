@@ -2,10 +2,21 @@
   <section id="dashboard">
     <navbar v-on:toggle-sidebar="sidebarState = !sidebarState" />
     <div class="main" :class="[sidebarState ? 'sidebar-toggled' : '']">
-      <sidebar :sidebartoggled="sidebarState" />
+      <sidebar
+        v-on:tabchange="(tabName) => tabChange(tabName)"
+        :sidebartoggled="sidebarState"
+      />
       <div class="notes">
-        <add-note v-on:note-added="(e) => addNewNote(e)" />
-        <display-notes :newnote="newNote" />
+        <template v-if="tabName === 'notes'">
+          <add-note v-on:note-added="(e) => addNewNote(e)" />
+          <display-notes :newnote="newNote" />
+        </template>
+        <template v-else-if="tabName === 'archive'">
+          <display-archived-notes />
+        </template>
+        <template v-else-if="tabName === 'trash'">
+          <display-trash-notes />
+        </template>
       </div>
     </div>
   </section>

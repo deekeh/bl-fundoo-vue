@@ -12,7 +12,7 @@
       <h2 class="title" v-html="title"></h2>
       <p class="description" v-html="description"></p>
     </div>
-    <div class="note-options-outer">
+    <div v-if="showoptions" class="note-options-outer">
       <note-options />
     </div>
   </section>
@@ -37,6 +37,10 @@
       color: {
         type: String,
         default: "#fff",
+      },
+      showoptions: {
+        type: Boolean,
+        default: true,
       },
     },
   };

@@ -58,8 +58,15 @@
         // console.log(body);
         addNote(body)
           .then((res) => {
-            console.log(res);
-            this.$emit("note-added", res.data)
+            // console.log(res);
+
+            // reset all values
+            this.title = "";
+            this.description = "";
+            this.color = "#fff";
+
+            // emit that the note is added to display in all notes section
+            this.$emit("note-added", res.data);
           })
           .catch((err) => {
             console.error(err);
