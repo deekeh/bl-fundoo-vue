@@ -16,7 +16,12 @@ export default {
     getNotes(id)
       .then((data) => {
         console.log(data.data);
-        this.notes = data.data;
+
+        this.notes = [];
+        data.data.forEach((d) => {
+          if (!d.isArchived) this.notes = [...this.notes, d];
+        });
+        // this.notes = data.data;
       })
       .catch((err) => {
         console.error(err);
@@ -31,6 +36,12 @@ export default {
   watch: {
     newnote() {
       this.notes = [...this.notes, this.newnote];
+    },
+  },
+  methods: {
+    removeArchivedNote(id) {
+      console.log("cool emit");
+      this.notes = this.notes.filter((n) => n._id !== id);
     },
   },
 };

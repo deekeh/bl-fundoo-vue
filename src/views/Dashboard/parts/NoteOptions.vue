@@ -12,7 +12,7 @@
     <button class="gallery icon">
       <i class="bi bi-image"></i>
     </button>
-    <button class="archive icon">
+    <button @click="archiveNote()" class="archive icon">
       <i class="bi bi-archive"></i>
     </button>
     <button class="more icon">
@@ -22,8 +22,30 @@
 </template>
 
 <script>
+  // service
+  import { setArchiveNote } from "@/services/notes";
+
   export default {
     name: "NoteOptions",
+    props: {
+      archiveid: {
+        type: String,
+      },
+    },
+    methods: {
+      archiveNote() {
+        if (this.archiveid) {
+          console.log(this.archiveid);
+          setArchiveNote(this.archiveid)
+            .then(() => {
+              this.$emit("removearchivednote");
+            })
+            .catch((err) => {
+              console.error(err);
+            });
+        }
+      },
+    },
   };
 </script>
 

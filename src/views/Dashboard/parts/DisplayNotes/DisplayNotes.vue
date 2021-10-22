@@ -6,6 +6,8 @@
       :title="data.title"
       :description="data.description"
       :color="data.color"
+      :noteid="data._id"
+      v-on:removearchivednote="noteid => removeArchivedNote(noteid)"
     />
   </section>
 </template>

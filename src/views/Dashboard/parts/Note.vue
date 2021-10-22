@@ -13,7 +13,10 @@
       <p class="description" v-html="description"></p>
     </div>
     <div v-if="showoptions" class="note-options-outer">
-      <note-options />
+      <note-options
+        v-on:removearchivednote="$emit('removearchivednote', noteid)"
+        :archiveid="noteid"
+      />
     </div>
   </section>
 </template>
@@ -41,6 +44,10 @@
       showoptions: {
         type: Boolean,
         default: true,
+      },
+      noteid: {
+        type: String,
+        default: "",
       },
     },
   };

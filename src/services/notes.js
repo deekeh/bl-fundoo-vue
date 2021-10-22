@@ -59,4 +59,21 @@ const getDeletedNotes = () => {
   });
 };
 
-export { getNotes, addNote, getArchivedNotes, getDeletedNotes };
+const setArchiveNote = (id) => {
+  return new Promise((resolve, reject) => {
+    axios
+      .patch(
+        `/notes/archive/${id}`,
+        {},
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((data) => resolve(data))
+      .catch((err) => reject(err));
+  });
+};
+
+export { getNotes, addNote, getArchivedNotes, getDeletedNotes, setArchiveNote };
