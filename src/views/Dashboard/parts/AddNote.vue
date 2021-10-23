@@ -21,7 +21,7 @@
           v-model="description"
         ></textarea>
         <footer class="bottom-footer">
-          <note-options />
+          <note-options v-on:selectedcolor="(c) => setNoteColor(c)" />
           <div class="right">
             <button type="submit" class="close">Close</button>
           </div>
@@ -71,6 +71,10 @@
           .catch((err) => {
             console.error(err);
           });
+      },
+      setNoteColor(c) {
+        this.color = c;
+        // console.log(this.color);
       },
     },
   };
