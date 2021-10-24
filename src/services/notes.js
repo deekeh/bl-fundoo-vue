@@ -93,6 +93,28 @@ const setDeleteNote = (id) => {
   });
 };
 
+const editNote = (note) => {
+  // console.log(note, "inside edit note");
+  return new Promise((resolve, reject) => {
+    axios
+      .patch(
+        `/notes/${note.id}`,
+        {
+          title: note.title,
+          description: note.description,
+          color: note.color,
+        },
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((data) => resolve(data))
+      .catch((err) => reject(err));
+  });
+};
+
 export {
   getNotes,
   addNote,
@@ -100,4 +122,5 @@ export {
   getDeletedNotes,
   setArchiveNote,
   setDeleteNote,
+  editNote,
 };

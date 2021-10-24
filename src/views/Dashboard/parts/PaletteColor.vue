@@ -64,7 +64,7 @@
       // padding: 0;
     }
     input[type="radio"] {
-      // display: none;
+      display: none;
 
       &:checked {
         display: inline;

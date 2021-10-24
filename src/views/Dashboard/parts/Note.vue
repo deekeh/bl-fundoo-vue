@@ -4,6 +4,14 @@
     :style="{
       '--bg-color': color,
     }"
+    @click="
+      $emit('noteselected', {
+        title,
+        description,
+        color,
+        noteid,
+      })
+    "
   >
     <button class="select-note">
       <i class="bi bi-check2"></i>
