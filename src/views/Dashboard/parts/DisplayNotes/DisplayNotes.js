@@ -43,10 +43,11 @@ export default {
   },
   methods: {
     removeNote(id) {
+      this.editStatus = false;
       this.notes = this.notes.filter((n) => n._id !== id);
     },
     toggleEditNote(n) {
-      console.log(this.notes[0], n)
+      console.log(this.notes[0], n);
       if (this.editStatus)
         this.notes.forEach((nt, idx) => {
           if (nt._id === n.id) {
@@ -56,7 +57,7 @@ export default {
               title: n.title,
               description: n.description,
               color: n.color,
-            }
+            };
             console.log(this.notes[idx]);
           }
         });

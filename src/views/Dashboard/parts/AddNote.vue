@@ -84,6 +84,9 @@
   section.add-note-outer {
     display: flex;
     justify-content: center;
+    @media screen and (max-width: 576px) {
+      padding: 0 1rem;
+    }
 
     .add-note {
       border-radius: 8px;

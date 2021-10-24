@@ -3,6 +3,18 @@ aside.sidebar {
   padding-top: 0.5rem;
   overflow-x: hidden;
 
+  @media screen and (max-width: 576px) {
+    position: absolute;
+    background: #fff;
+    /* height: 100%; */
+    z-index: 4;
+    width: 80%;
+
+    &.toggled {
+      box-shadow: 10px 0 10px -2px #999;
+    }
+  }
+
   // &:hover {
   //   position: absolute;
   //   z-index: 1;

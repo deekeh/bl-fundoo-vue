@@ -104,6 +104,9 @@
     gap: 1rem;
     align-items: center;
     position: relative;
+    @media screen and (max-width: 576px) {
+      gap: normal;
+    }
 
     .color-palette {
       background: #fff;

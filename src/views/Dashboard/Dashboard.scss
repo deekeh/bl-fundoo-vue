@@ -13,11 +13,19 @@ section#dashboard {
       height: 100%;
     }
 
+    @media screen and (max-width: 576px) {
+      grid-template-columns: 1fr !important;
+    }
+
     .notes {
       padding-top: 2rem;
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      @media screen and (max-width: 576px) {
+        width: calc(100% - 64px);
+        margin-left: auto;
+      }
     }
   }
 }

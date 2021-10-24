@@ -83,7 +83,7 @@
     position: relative;
     padding: 1rem;
 
-    width: 267px;
+    // width: 267px;
 
     button.select-note {
       &:hover {

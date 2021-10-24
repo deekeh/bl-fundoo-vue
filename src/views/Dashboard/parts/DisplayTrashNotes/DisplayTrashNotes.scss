@@ -1,8 +1,13 @@
 .display-trash-notes {
   // background: #ccc;
 
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  @media screen and (max-width: 576px) {
+    grid-template-columns: 1fr;
+  }
   gap: 1rem;
 
   padding: 0 1rem;
