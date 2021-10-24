@@ -35,7 +35,7 @@
       <div class="apps icon">
         <i class="bi bi-grid-3x3-gap-fill"></i>
       </div>
-      <div class="user-account icon">
+      <div @click="logout()" class="user-account icon">
         <i class="bi bi-person-fill"></i>
       </div>
     </div>

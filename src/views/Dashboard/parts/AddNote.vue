@@ -84,7 +84,7 @@
   section.add-note-outer {
     display: flex;
     justify-content: center;
-    @media screen and (max-width: 576px) {
+    @media screen and (max-width: 1024px) {
       padding: 0 1rem;
     }
 
@@ -93,6 +93,9 @@
       box-shadow: 0 0 8px #777;
       padding: 0.5rem;
       width: calc(min(600px, 100%));
+      @media screen and (min-width: 576.1px) and (max-width: 1024px) {
+        width: 100%;
+      }
 
       display: flex;
       flex-direction: column;
