@@ -1,5 +1,10 @@
 export default {
   name: "Navbar",
+  data() {
+    return {
+      showLogout: false,
+    };
+  },
   methods: {
     logout() {
       localStorage.removeItem("token");

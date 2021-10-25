@@ -1,5 +1,20 @@
 <template>
   <nav id="navbar">
+    <div class="account-popup" v-if="showLogout">
+      <div class="pfp">
+        <div class="pfp-inner" title="Go to account settings">
+          <i class="bi bi-person-fill"></i>
+        </div>
+      </div>
+      <!-- <div class="user-name">
+        User Lastname
+      </div> -->
+      <div class="logout">
+        <button type="button" @click="logout" class="logout-button">
+          Logout
+        </button>
+      </div>
+    </div>
     <div class="left">
       <button
         type="button"
@@ -35,7 +50,7 @@
       <div class="apps icon">
         <i class="bi bi-grid-3x3-gap-fill"></i>
       </div>
-      <div @click="logout()" class="user-account icon">
+      <div @click="showLogout = !showLogout" class="user-account icon">
         <i class="bi bi-person-fill"></i>
       </div>
     </div>
